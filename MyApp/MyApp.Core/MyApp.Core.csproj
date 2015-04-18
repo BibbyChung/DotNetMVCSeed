@@ -56,6 +56,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +68,18 @@
     <Compile Include="Common\AppHelper.cs" />
     <Compile Include="Interface\Common\IUnitOfWork.cs" />
     <Compile Include="Common\UnitOfWork.cs" />
+    <Compile Include="Models\Entities\Categories.cs" />
+    <Compile Include="Models\Entities\CustomerDemographics.cs" />
+    <Compile Include="Models\Entities\Customers.cs" />
+    <Compile Include="Models\Entities\Employees.cs" />
+    <Compile Include="Models\Entities\Northwind.cs" />
+    <Compile Include="Models\Entities\Orders.cs" />
+    <Compile Include="Models\Entities\Order_Details.cs" />
+    <Compile Include="Models\Entities\Products.cs" />
+    <Compile Include="Models\Entities\Region.cs" />
+    <Compile Include="Models\Entities\Shippers.cs" />
+    <Compile Include="Models\Entities\Suppliers.cs" />
+    <Compile Include="Models\Entities\Territories.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
