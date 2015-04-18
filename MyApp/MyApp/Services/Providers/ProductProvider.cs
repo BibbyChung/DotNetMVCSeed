@@ -13,7 +13,6 @@ namespace MyApp.Services.Providers
         public IList<ProductDto> GetAllData()
         {
             var db = new UnitOfWork();
-            db.Context = new Northwind();
 
             return db.NorthwindContent.Products.Select(a => new
             {

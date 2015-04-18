@@ -7,7 +7,7 @@ using MyApp.Models.Entities;
 
 namespace MyApp.Common
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private DbContext _context;
         public Northwind NorthwindContent
@@ -20,7 +20,12 @@ namespace MyApp.Common
 
         public DbContext Context
         {
-            get { return _context; }
+            get
+            {
+                if (_context == null)
+                    _context = new Northwind();
+                return _context;
+            }
             set
             {
                 _context = value;
