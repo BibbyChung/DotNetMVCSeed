@@ -11,7 +11,9 @@ namespace MyApp.WebMVC.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            dynamic d = new System.Dynamic.ExpandoObject();
+            d.Msg = "Hello World";
+            return View("Index", d);
         }
     }
 }
