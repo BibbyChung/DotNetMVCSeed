@@ -82,6 +82,8 @@
     <Compile Include="Models\Entities\Territories.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interface\Services\Providers\IProductProvider.cs" />
+    <Compile Include="Models\DTO\ProductDto.cs" />
+    <Compile Include="Interface\Services\IProductService.cs" />
     <Compile Include="Services\Providers\ProductProvider.cs" />
     <Compile Include="Services\ProductService.cs" />
   </ItemGroup>

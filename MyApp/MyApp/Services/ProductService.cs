@@ -2,18 +2,25 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyApp.Interface.Services;
 using MyApp.Interface.Services.Providers;
+using MyApp.Models.DTO;
 using MyApp.Models.Entities;
 using MyApp.Services.Providers;
 
 namespace MyApp.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
-        public IList<Products> GetAllProductData()
+        private IProductProvider provider;
+        public ProductService()
         {
-            IProductProvider p = new ProductProvider();
-            return p.GetAllData();
+            this.provider = new ProductProvider();
+        }
+
+        public IList<ProductDto> GetAllProductData()
+        {
+            return provider.GetAllData();
         }
     }
 }

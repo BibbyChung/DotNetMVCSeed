@@ -1,0 +1,29 @@
+﻿@model IList<MyApp.Models.DTO.ProductDto>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Product List</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>ProductName</th>
+        <th>UnitPrice</th>
+        <th>Count</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.UnitPrice</td>
+            <td>@item.Count</td>
+        </tr>
+    }
+    </tbody>
+</table>
