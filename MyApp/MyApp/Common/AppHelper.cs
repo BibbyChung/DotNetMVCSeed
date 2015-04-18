@@ -1,4 +1,4 @@
-﻿namespace MyApp.Core.Common
+﻿namespace MyApp.Common
 {
     public class AppHelper
     {

@@ -2,13 +2,22 @@
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
-using MyApp.Core.Interface.Common;
+using MyApp.Interface.Common;
+using MyApp.Models.Entities;
 
-namespace MyApp.Core.Common
+namespace MyApp.Common
 {
     public class UnitOfWork : IUnitOfWork
     {
         private DbContext _context;
+        public Northwind NorthwindContent
+        {
+            get
+            {
+                return Context as Northwind;
+            }
+        }
+
         public DbContext Context
         {
             get { return _context; }

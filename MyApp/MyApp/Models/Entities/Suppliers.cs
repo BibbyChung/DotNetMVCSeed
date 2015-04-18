@@ -1,4 +1,4 @@
-namespace MyApp.Core.Models.Entities
+namespace MyApp.Models.Entities
 {
     using System;
     using System.Collections.Generic;
