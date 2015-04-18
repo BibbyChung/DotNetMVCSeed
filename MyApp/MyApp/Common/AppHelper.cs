@@ -1,4 +1,6 @@
-﻿namespace MyApp.Common
+﻿using Castle.Windsor;
+
+namespace MyApp.Common
 {
     public class AppHelper
     {
@@ -11,6 +13,14 @@
 #else
             return false;
 #endif
+            }
+        }
+
+        public static IWindsorContainer CastleWindsorContainer
+        {
+            get
+            {
+                  return CastleWindsorContext.Instance.Container;
             }
         }
     }

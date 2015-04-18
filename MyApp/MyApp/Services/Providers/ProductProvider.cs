@@ -4,6 +4,7 @@ using MyApp.Common;
 using MyApp.Interface.Services.Providers;
 using MyApp.Models.Entities;
 using System.Linq;
+using MyApp.Interface.Common;
 using MyApp.Models.DTO;
 
 namespace MyApp.Services.Providers
@@ -12,7 +13,7 @@ namespace MyApp.Services.Providers
     {
         public IList<ProductDto> GetAllData()
         {
-            var db = new UnitOfWork();
+            var db =  AppHelper.CastleWindsorContainer.Resolve<IUnitOfWork>();
 
             return db.NorthwindContent.Products.Select(a => new
             {

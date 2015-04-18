@@ -62,10 +62,5 @@ namespace MyApp.Common
         {
             //do something
         }
-
-        private void TrackAndLogChangeData(DateTime now, Guid userId)
-        {
-            //do something
-        }
     }
 }

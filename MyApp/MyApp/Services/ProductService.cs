@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyApp.Common;
 using MyApp.Interface.Services;
 using MyApp.Interface.Services.Providers;
 using MyApp.Models.DTO;
@@ -12,14 +13,9 @@ namespace MyApp.Services
 {
     public class ProductService : IProductService
     {
-        private IProductProvider provider;
-        public ProductService()
-        {
-            this.provider = new ProductProvider();
-        }
-
         public IList<ProductDto> GetAllProductData()
         {
+            var provider = AppHelper.CastleWindsorContainer.Resolve<IProductProvider>();
             return provider.GetAllData();
         }
     }
