@@ -11,11 +11,15 @@ namespace MyApp.Services.Providers
 {
     public class ProductProvider : IProductProvider
     {
+        private IUnitOfWork db;
+        public ProductProvider(IUnitOfWork db)
+        {
+            this.db = db;
+        }
+
         public IList<ProductDto> GetAllData()
         {
-            var db =  AppHelper.CastleWindsorContainer.Resolve<IUnitOfWork>();
-
-            return db.NorthwindContent.Products.Select(a => new
+            return db.GetMyAppContext<Northwind>().Products.Select(a => new
             {
                 a.ProductName,
                 a.UnitPrice,

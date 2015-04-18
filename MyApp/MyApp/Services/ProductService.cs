@@ -13,9 +13,15 @@ namespace MyApp.Services
 {
     public class ProductService : IProductService
     {
+        private IProductProvider provider;
+        public ProductService(IProductProvider provider)
+        {
+            this.provider = provider;
+        }
+
         public IList<ProductDto> GetAllProductData()
         {
-            var provider = AppHelper.CastleWindsorContainer.Resolve<IProductProvider>();
+
             return provider.GetAllData();
         }
     }

@@ -6,9 +6,9 @@ namespace MyApp.Interface.Common
 {
     public interface IUnitOfWork
     {
-        Northwind NorthwindContent { get; }
-        DbContext Context { get; set; }
+        //DbContext Context { get; set; }
         string ConnectionString { get; set; }
+        T GetMyAppContext<T>() where T : DbContext;
         void Dispose();
         void Save();
     }

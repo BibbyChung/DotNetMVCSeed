@@ -10,39 +10,28 @@ namespace MyApp.Common
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private DbContext _context;
-        public Northwind NorthwindContent
+
+        public UnitOfWork(DbContext context)
         {
-            get
-            {
-                return Context as Northwind;
-            }
+            this._context = context;
+            if (AppHelper.IsDebugMode)
+                this._context.Database.Log = a => Debug.WriteLine(a);
         }
 
-        public DbContext Context
+        public T GetMyAppContext<T>() where T : DbContext
         {
-            get
-            {
-                if (_context == null)
-                    _context = new Northwind();
-                return _context;
-            }
-            set
-            {
-                _context = value;
-                if (AppHelper.IsDebugMode)
-                    this._context.Database.Log = a => Debug.WriteLine(a);
-            }
+            return this._context as T;
         }
 
         public string ConnectionString
         {
-            get { return Context.Database.Connection.ConnectionString; }
-            set { Context.Database.Connection.ConnectionString = value; }
+            get { return _context.Database.Connection.ConnectionString; }
+            set { _context.Database.Connection.ConnectionString = value; }
         }
 
         public void Dispose()
         {
-            Context.Dispose();
+            _context.Dispose();
         }
 
         public virtual void Save()
@@ -51,7 +40,7 @@ namespace MyApp.Common
 
             try
             {
-                Context.SaveChanges();
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException ex) { }
 
